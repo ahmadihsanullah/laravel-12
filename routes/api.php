@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\RumahController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource('rumah', RumahController::class);
@@ -16,3 +17,5 @@ Route::get('book', [BookController::class, 'index']);
 
 Route::get('students', [StudentController::class, 'index']);
 Route::post('student', [StudentController::class, 'store']);
+
+Route::post('siswa', [SiswaController::class, 'store']);

@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Macros\StrMacro;
 use App\PaymentMethod\PaymentMethod;
 use App\PaymentMethod\PaymentMethodCC;
 use App\PaymentMethod\PaymentMethodSA;
 use App\Service\DrinkBill;
 use Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(DrinkBill::class, function ($app) {
             return new DrinkBill();
         });
+
+        // macroable
+        Str::mixin(new StrMacro());
     }
 
     /**

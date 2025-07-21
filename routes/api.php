@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TokenController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\MacroController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\SingletonController;
@@ -35,3 +36,6 @@ Route::get('payment', [SingletonController::class, 'index']);
 
 // facades
 Route::get('bill', [BillController::class, 'bill']);
+
+// macroable
+Route::get('macro', [MacroController::class, 'index']);

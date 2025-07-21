@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TokenController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\RumahController;
+use App\Http\Controllers\SingletonController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::post('token/create', [TokenController::class, 'create']);
 Route::get("account", [AccountController::class, 'index'])->middleware(['auth:sanctum',
     'ability:account-list, account-view'
 ]);
+
+// dependency injection / singleton
+Route::get('payment', [SingletonController::class, 'index']);

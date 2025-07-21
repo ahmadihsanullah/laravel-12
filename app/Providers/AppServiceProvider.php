@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\PaymentMethod\PaymentMethod;
+use App\PaymentMethod\PaymentMethodCC;
+use App\PaymentMethod\PaymentMethodSA;
 use Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +15,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(PaymentMethod::class, function ($app) {
+            if(request()->pay_method == 'CC'){
+                return new PaymentMethodCC();
+            } else {
+                return new PaymentMethodSA();
+            }
+        });
     }
 
     /**

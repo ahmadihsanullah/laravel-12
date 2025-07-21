@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\PaymentMethod\PaymentMethod;
 use App\PaymentMethod\PaymentMethodCC;
 use App\PaymentMethod\PaymentMethodSA;
+use App\Service\DrinkBill;
 use Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
             } else {
                 return new PaymentMethodSA();
             }
+        });
+
+        $this->app->singleton(DrinkBill::class, function ($app) {
+            return new DrinkBill();
         });
     }
 

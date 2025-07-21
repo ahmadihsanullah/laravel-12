@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TokenController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\SingletonController;
@@ -31,3 +32,6 @@ Route::get("account", [AccountController::class, 'index'])->middleware(['auth:sa
 
 // dependency injection / singleton
 Route::get('payment', [SingletonController::class, 'index']);
+
+// facades
+Route::get('bill', [BillController::class, 'bill']);

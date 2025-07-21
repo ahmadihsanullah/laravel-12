@@ -10,6 +10,7 @@ use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\SingletonController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource('rumah', RumahController::class);
@@ -39,3 +40,6 @@ Route::get('bill', [BillController::class, 'bill']);
 
 // macroable
 Route::get('macro', [MacroController::class, 'index']);
+
+// event-listener
+Route::post('transfer', TransferController::class);

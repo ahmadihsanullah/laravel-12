@@ -5,8 +5,10 @@ use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TokenController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MacroController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\SingletonController;
 use App\Http\Controllers\SiswaController;
@@ -43,3 +45,11 @@ Route::get('macro', [MacroController::class, 'index']);
 
 // event-listener
 Route::post('transfer', TransferController::class);
+
+// upload foto
+Route::post('save', [PostController::class, 'upload']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
+
+
+// file system
+Route::get('file', [FileController::class, 'index']);

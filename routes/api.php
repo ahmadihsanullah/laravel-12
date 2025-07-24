@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TokenController;
+use App\Http\Controllers\Api\User\IndexController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MacroController;
@@ -53,3 +54,6 @@ Route::get('/posts/{post}', [PostController::class, 'show']);
 
 // file system
 Route::get('file', [FileController::class, 'index']);
+
+// cursor paginate
+Route::get('users', IndexController::class);
